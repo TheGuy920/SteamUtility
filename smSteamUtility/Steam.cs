@@ -11,8 +11,8 @@ namespace smSteamUtility
     {
         private bool SteamInitialized { get; set; }
         public DirectoryInfo SteamDirectory { get; internal set; }
-        public string SteamDisplayName { get; internal set; }
-        public string SteamUserName { get; internal set; }
+        public string DisplayName { get; internal set; }
+        public string UserName { get; internal set; }
         public CSteamID SteamId { get; internal set; }
         public string SteamLanguage { get; internal set; }
         public DirectoryInfo GameDirectory { get; internal set; }
@@ -25,12 +25,13 @@ namespace smSteamUtility
         {
             this.SteamDirectory = new(Utility.GetRegVal<string>("Software\\Valve\\Steam", "SteamPath").ToValidPath());
             
-            if (!SteamAPI.Init())
-                return false;
-            else
-                this.SteamInitialized = true;
+            if(this.SteamInitialized != true)
+                if (!SteamAPI.Init())
+                    return false;
+                else
+                    this.SteamInitialized = true;
 
-            this.SteamUserName = SteamFriends.GetPersonaName();
+            this.UserName = SteamFriends.GetPersonaName();
             this.SteamId = SteamUser.GetSteamID();
             
             return true;
@@ -43,7 +44,7 @@ namespace smSteamUtility
             this.GameInstalled = Utility.GetRegVal<bool>("Software\\Valve\\Steam\\Apps\\387990", "Installed");
             this.GameUpdating = Utility.GetRegVal<bool>("Software\\Valve\\Steam\\Apps\\387990", "Updating");
             this.GameRunning = Utility.GetRegVal<bool>("Software\\Valve\\Steam\\Apps\\387990", "Running");
-            this.SteamDisplayName = Utility.GetRegVal<string>("Software\\Valve\\Steam", "LastGameNameUsed");
+            this.DisplayName = Utility.GetRegVal<string>("Software\\Valve\\Steam", "LastGameNameUsed");
             this.SteamLanguage = Utility.GetRegVal<string>("Software\\Valve\\Steam", "Language").CapitilzeFirst();
 
             if (!Directory.Exists(Path.Combine(this.SteamDirectory.FullName, "steamapps", "common", "Scrap Mechanic")))
@@ -67,14 +68,15 @@ namespace smSteamUtility
         }
         #endregion
 
-        #region LoadSteamAvatar
         public Bitmap SmallAvatar { get; internal set; }
         public Bitmap MediumAvatar { get; internal set; }
         public Bitmap LargeAvatar { get; internal set; }
-        private async void LoadProfile()
+
+        #region LoadSteamAvatar
+        public void LoadAvatars()
         {
             var http = new HttpClient();
-            var result = await http.GetAsync($"https://steamcommunity.com/profiles/{this.SteamId}?xml=true");
+            var result = http.GetAsync($"https://steamcommunity.com/profiles/{this.SteamId}?xml=true").GetAwaiter().GetResult();
             XElement DataObject = XElement.Parse(new StreamReader(result.Content.ReadAsStream(), Encoding.UTF8).ReadToEnd());
             System.Net.WebRequest request;
             System.Net.WebResponse response;
