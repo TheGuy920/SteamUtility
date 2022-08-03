@@ -5,6 +5,15 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Platforms>AnyCPU;x64;ARM64</Platforms>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Description>Steam Utility for Scrap Mechanic that combines SteamAPI.dll, registry utility, SteamWorks.NET</Description>
+    <PackageProjectUrl>https://github.com/TheGuy920/smSteamUtility</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/TheGuy920/smSteamUtility</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>sm;steamworks;api;scrap;mechanic;</PackageTags>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
@@ -27,6 +36,10 @@
 			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
 			<TargetPath>steam_appid.txt</TargetPath>
 		</ContentWithTargetPath>
+		<None Include="..\README.md">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+		</None>
 		<None Update="Resources/steam_api64.dll;Resources/steam_appid.txt" Pack="true" PackagePath="/contentFiles" />
 	</ItemGroup>
 
