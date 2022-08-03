@@ -10,6 +10,7 @@ namespace smSteamUtility
     public class Steam
     {
         private bool SteamInitialized { get; set; }
+        private bool GameInitialized { get; set; }
         public DirectoryInfo SteamDirectory { get; internal set; }
         public string DisplayName { get; internal set; }
         public string UserName { get; internal set; }
@@ -41,9 +42,7 @@ namespace smSteamUtility
         #region LocateGameInstallation
         public bool ConnectToGame()
         {
-            this.GameInstalled = Utility.GetRegVal<bool>("Software\\Valve\\Steam\\Apps\\387990", "Installed");
-            this.GameUpdating = Utility.GetRegVal<bool>("Software\\Valve\\Steam\\Apps\\387990", "Updating");
-            this.GameRunning = Utility.GetRegVal<bool>("Software\\Valve\\Steam\\Apps\\387990", "Running");
+            this.RefreshGameStats();
             this.DisplayName = Utility.GetRegVal<string>("Software\\Valve\\Steam", "LastGameNameUsed");
             this.SteamLanguage = Utility.GetRegVal<string>("Software\\Valve\\Steam", "Language").CapitilzeFirst();
 
@@ -65,6 +64,12 @@ namespace smSteamUtility
             {
                 return false;
             }
+        }
+        public void RefreshGameStats()
+        {
+            this.GameInstalled = Utility.GetRegVal<bool>("Software\\Valve\\Steam\\Apps\\387990", "Installed");
+            this.GameUpdating = Utility.GetRegVal<bool>("Software\\Valve\\Steam\\Apps\\387990", "Updating");
+            this.GameRunning = Utility.GetRegVal<bool>("Software\\Valve\\Steam\\Apps\\387990", "Running");
         }
         #endregion
 
