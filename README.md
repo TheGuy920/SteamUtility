@@ -33,7 +33,7 @@ bool game_running = steam.GameRunning;
 bool game_updating = steam.GameUpdating;
 ```
 
-### Running `RefreshGameStats()` will update the values [`is_running`, `is_installed`, `is_updating`]
+### Running `RefreshGameStats()` will update the values [`GameInstalled`, `GameRunning`, `GameUpdating`]
 
 ### Also gives full access to the [Offical Steamworks API](https://partner.steamgames.com/doc/sdk/api) via the [C# Steamworks API](https://steamworks.github.io/)
 
