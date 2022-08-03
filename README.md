@@ -34,4 +34,5 @@ bool game_updating = steam.GameUpdating;
 ```
 
 Re-Running `ConnectToSteam()` and `ConnectToGame()` will re-initialized the values if they update (some rely on the registry)
+
 Also gives full access to the [SteamWorks API](https://steamworks.github.io/)
