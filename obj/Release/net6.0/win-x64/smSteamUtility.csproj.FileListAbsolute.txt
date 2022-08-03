@@ -1,0 +1,14 @@
+C:\Users\Matthew\source\repos\ScrapMechanicSteamUtil\ScrapMechanicSteamUtil\bin\Release\net6.0\win-x64\steam_api64.dll
+C:\Users\Matthew\source\repos\ScrapMechanicSteamUtil\ScrapMechanicSteamUtil\bin\Release\net6.0\win-x64\steam_appid.txt
+C:\Users\Matthew\source\repos\ScrapMechanicSteamUtil\ScrapMechanicSteamUtil\bin\Release\net6.0\win-x64\smSteamUtility.deps.json
+C:\Users\Matthew\source\repos\ScrapMechanicSteamUtil\ScrapMechanicSteamUtil\bin\Release\net6.0\win-x64\smSteamUtility.dll
+C:\Users\Matthew\source\repos\ScrapMechanicSteamUtil\ScrapMechanicSteamUtil\bin\Release\net6.0\win-x64\smSteamUtility.pdb
+C:\Users\Matthew\source\repos\ScrapMechanicSteamUtil\ScrapMechanicSteamUtil\obj\Release\net6.0\win-x64\smSteamUtility.csproj.AssemblyReference.cache
+C:\Users\Matthew\source\repos\ScrapMechanicSteamUtil\ScrapMechanicSteamUtil\obj\Release\net6.0\win-x64\smSteamUtility.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Matthew\source\repos\ScrapMechanicSteamUtil\ScrapMechanicSteamUtil\obj\Release\net6.0\win-x64\smSteamUtility.AssemblyInfoInputs.cache
+C:\Users\Matthew\source\repos\ScrapMechanicSteamUtil\ScrapMechanicSteamUtil\obj\Release\net6.0\win-x64\smSteamUtility.AssemblyInfo.cs
+C:\Users\Matthew\source\repos\ScrapMechanicSteamUtil\ScrapMechanicSteamUtil\obj\Release\net6.0\win-x64\smSteamUtility.csproj.CoreCompileInputs.cache
+C:\Users\Matthew\source\repos\ScrapMechanicSteamUtil\ScrapMechanicSteamUtil\obj\Release\net6.0\win-x64\smSteamUtility.dll
+C:\Users\Matthew\source\repos\ScrapMechanicSteamUtil\ScrapMechanicSteamUtil\obj\Release\net6.0\win-x64\refint\smSteamUtility.dll
+C:\Users\Matthew\source\repos\ScrapMechanicSteamUtil\ScrapMechanicSteamUtil\obj\Release\net6.0\win-x64\smSteamUtility.pdb
+C:\Users\Matthew\source\repos\ScrapMechanicSteamUtil\ScrapMechanicSteamUtil\obj\Release\net6.0\win-x64\ref\smSteamUtility.dll

@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Platforms>AnyCPU;x64;ARM64</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Steamworks.NET" Version="20.1.0" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<ContentWithTargetPath Include="Resources/steam_api64.dll">
+			<Pack>True</Pack>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<PackageCopyToOutput>True</PackageCopyToOutput>
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+			<TargetPath>steam_api64.dll</TargetPath>
+		</ContentWithTargetPath>
+		<ContentWithTargetPath Include="Resources/steam_appid.txt">
+			<Pack>True</Pack>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<PackageCopyToOutput>True</PackageCopyToOutput>
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+			<TargetPath>steam_appid.txt</TargetPath>
+		</ContentWithTargetPath>
+		<None Update="Resources/steam_api64.dll;Resources/steam_appid.txt" Pack="true" PackagePath="/contentFiles" />
+	</ItemGroup>
+
+</Project>

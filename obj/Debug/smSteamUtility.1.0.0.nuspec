@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>smSteamUtility</id>
+    <version>1.0.0</version>
+    <authors>smSteamUtility</authors>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework="net6.0">
+        <dependency id="Steamworks.NET" version="20.1.0" exclude="Build,Analyzers" />
+        <dependency id="System.Drawing.Common" version="6.0.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Matthew\source\repos\ScrapMechanicSteamUtil\ScrapMechanicSteamUtil\bin\Debug\net6.0\smSteamUtility.dll" target="lib\net6.0\smSteamUtility.dll" />
+    <file src="C:\Users\Matthew\source\repos\ScrapMechanicSteamUtil\ScrapMechanicSteamUtil\Resources\steam_api64.dll" target="\contentFiles\Resources\steam_api64.dll" />
+    <file src="C:\Users\Matthew\source\repos\ScrapMechanicSteamUtil\ScrapMechanicSteamUtil\Resources\steam_appid.txt" target="\contentFiles\Resources\steam_appid.txt" />
+  </files>
+</package>
