@@ -33,6 +33,6 @@ bool game_running = steam.GameRunning;
 bool game_updating = steam.GameUpdating;
 ```
 
-Running `RefreshGameStats()` will re-initialized the gamestat values `[is_running, is_installed, is_updating]` if they update (they rely on the registry)
+Running `RefreshGameStats()` will re-initialize the values [`is_running`, `is_installed`, `is_updating`] if they update (they rely on the registry)
 
 Also gives full access to the [SteamWorks API](https://steamworks.github.io/)
