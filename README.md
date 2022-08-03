@@ -4,10 +4,24 @@
 
 ```csharp
 Steam steam = new();
-steam.ConnectToSteam();
-steam.ConnectToGame();
+
+// Connect to steam
+if (steam.ConnectToSteam())
+    Debug.WriteLine("Sucessfully conected to Steam");
+
+// Connect to game
+if (steam.ConnectToGame())
+    Debug.WriteLine("Sucessfully linked to Scrap Mechanic");
+
+// load Avatar Bitmaps
 steam.LoadAvatars();
 
+// Avatar Bitmaps
+Bitmap img_snall = SmallAvatar;
+Bitmap img_med = MediumAvatar;
+Bitmap img_large = LargeAvatar;
+
+// base class
 DirectoryInfo steam_dir = steam.SteamDirectory;
 string display_name = steam.DisplayName;
 string user_name = steam.UserName;
@@ -17,10 +31,6 @@ DirectoryInfo game_dir = steam.GameDirectory;
 bool game_installed = steam.GameInstalled;
 bool game_running = steam.GameRunning;
 bool game_updating = steam.GameUpdating;
-
-Bitmap img_snall = SmallAvatar;
-Bitmap img_med = MediumAvatar;
-Bitmap img_large = LargeAvatar;
 ```
 
 Re-Running `ConnectToSteam()` and `ConnectToGame()` will re-initialized the values if they update (some rely on the registry)
