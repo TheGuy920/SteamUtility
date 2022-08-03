@@ -1,5 +1,5 @@
 # smSteamUtility
- Steam Utility for Scrap Mechanic that combines registry util and [SteamWorks.NET](https://steamworks.github.io/)
+ Steam Utility for Scrap Mechanic that combines SteamAPI.dll, registry util, [SteamWorks.NET](https://steamworks.github.io/)
 
 
 ```csharp
