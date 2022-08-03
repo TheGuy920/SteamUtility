@@ -1,7 +1,7 @@
 # smSteamUtility
 ## Steam Utility for Scrap Mechanic that combines registry utility, SteamAPI.dll, and [Steamworks.NET](https://steamworks.github.io/)
 
-[![NuGet version (smSteamUtility)](https://img.shields.io/nuget/v/smSteamUtility.svg)](https://www.nuget.org/packages/smSteamUtility/)
+[![NuGet version (smSteamUtility)](https://img.shields.io/nuget/v/smSteamUtility.svg)](https://www.nuget.org/packages/smSteamUtility/)  [![Build & Test](https://github.com/TheGuy920/smSteamUtility/actions/workflows/build.yml/badge.svg)](https://github.com/TheGuy920/smSteamUtility/actions/workflows/build.yml)
 
 
 ```csharp
