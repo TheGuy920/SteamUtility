@@ -15,9 +15,9 @@
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
     <NeutralLanguage>en</NeutralLanguage>
-    <PackageReleaseNotes>Fixed package issue with packaging and .NET version</PackageReleaseNotes>
+    <PackageReleaseNotes>Fixed packaging issue with steam_appid.txt</PackageReleaseNotes>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-    <FileVersion>1.0.3.8</FileVersion>
+    <FileVersion>1.0.4.9</FileVersion>
     <AssemblyVersion>2.0.2.2</AssemblyVersion>
     <Authors>TheGuy920</Authors>
     <Version>$(FileVersion)</Version>
@@ -38,28 +38,18 @@
 			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
 			<TargetPath>steam_api64.dll</TargetPath>
 		</ContentWithTargetPath>
-		<ContentWithTargetPath Include="Resources/steam_appid.txt">
-			<Pack>True</Pack>
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<PackageCopyToOutput>True</PackageCopyToOutput>
-			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-			<TargetPath>steam_appid.txt</TargetPath>
-		</ContentWithTargetPath>
+		<None Update="Resources\steam_api64.dll" Pack="true" PackagePath="/lib/net6.0/steam_api64.dll" />
 		<None Include="..\README.md">
 		  <Pack>True</Pack>
 		  <PackagePath>\</PackagePath>
 		</None>
-		<Compile Update="Properties\Resources.Designer.cs">
-		  <DesignTime>True</DesignTime>
-		  <AutoGen>True</AutoGen>
-		  <DependentUpon>Resources.resx</DependentUpon>
-		</Compile>
-		<EmbeddedResource Update="Properties\Resources.resx">
-		  <Generator>ResXFileCodeGenerator</Generator>
-		  <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-		</EmbeddedResource>
-		<None Update="Resources/steam_api64.dll" Pack="true" PackagePath="/lib/net6.0/steam_api64.dll" />
-		<None Update="Resources/steam_appid.txt" Pack="true" PackagePath="/lib/net6.0/steam_appid.txt" />
+		<Content Include="steam_appid.txt">
+			<Pack>True</Pack>
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<PackageCopyToOutput>True</PackageCopyToOutput>
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+		<None Update="steam_appid.txt" Pack="true" PackagePath="/contentFiles" />
 	</ItemGroup>
 
 </Project>
