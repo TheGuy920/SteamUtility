@@ -14,7 +14,16 @@
     <PackageTags>sm;steamworks;api;scrap;mechanic;</PackageTags>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+    <NeutralLanguage>en</NeutralLanguage>
+    <PackageReleaseNotes>Fixed package issue with packaging and .NET version</PackageReleaseNotes>
+    <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+    <FileVersion>1.0.3.8</FileVersion>
+    <AssemblyVersion>2.0.2.2</AssemblyVersion>
+    <Authors>TheGuy920</Authors>
+    <Version>$(FileVersion)</Version>
+    <Company>TGO Inc</Company>
   </PropertyGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Steamworks.NET" Version="20.1.0" />
@@ -40,7 +49,17 @@
 		  <Pack>True</Pack>
 		  <PackagePath>\</PackagePath>
 		</None>
-		<None Update="Resources/steam_api64.dll;Resources/steam_appid.txt" Pack="true" PackagePath="/contentFiles" />
+		<Compile Update="Properties\Resources.Designer.cs">
+		  <DesignTime>True</DesignTime>
+		  <AutoGen>True</AutoGen>
+		  <DependentUpon>Resources.resx</DependentUpon>
+		</Compile>
+		<EmbeddedResource Update="Properties\Resources.resx">
+		  <Generator>ResXFileCodeGenerator</Generator>
+		  <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+		</EmbeddedResource>
+		<None Update="Resources/steam_api64.dll" Pack="true" PackagePath="/lib/net6.0/steam_api64.dll" />
+		<None Update="Resources/steam_appid.txt" Pack="true" PackagePath="/lib/net6.0/steam_appid.txt" />
 	</ItemGroup>
 
 </Project>
