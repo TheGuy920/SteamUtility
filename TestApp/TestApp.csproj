@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\smSteamUtility\smSteamUtility.csproj" />
+    <ProjectReference Include="..\smSteamUtility\SteamUtility.csproj" />
   </ItemGroup>
 
 </Project>

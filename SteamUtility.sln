@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "smSteamUtility", "smSteamUtility\smSteamUtility.csproj", "{95AB1E02-6D55-4EA5-984B-0CCC12995ABD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SteamUtility", "smSteamUtility\SteamUtility.csproj", "{95AB1E02-6D55-4EA5-984B-0CCC12995ABD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApp", "TestApp\TestApp.csproj", "{E6242C30-B50F-4A79-A807-1D459486EBE0}"
 EndProject
