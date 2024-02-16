@@ -1,16 +1,16 @@
 ﻿using smSteamUtility.Extensions;
 using smSteamUtility.Util;
 using Steamworks;
+using System.Diagnostics;
 using System.Drawing;
 using System.Text;
 using System.Xml.Linq;
 
 namespace smSteamUtility
 {
-    public class Steam
+    public class Steam(string GameName, uint appid)
     {
-        private bool SteamInitialized { get; set; }
-        private bool GameInitialized { get; set; }
+        public bool SteamInitialized { get; internal set; }
         public DirectoryInfo? SteamDirectory { get; internal set; }
         public string? DisplayName { get; internal set; }
         public string? UserName { get; internal set; }
@@ -24,15 +24,28 @@ namespace smSteamUtility
         #region LoadSteam
         public bool ConnectToSteam()
         {
-            this.SteamDirectory = new(Utility.GetRegVal<string>("Software\\Valve\\Steam", "SteamPath")!.ToValidPath());
-            
-            if(this.SteamInitialized != true)
-                if (!SteamAPI.Init())
-                    return false;
-                else
-                    this.SteamInitialized = true;
+            this.SteamDirectory ??= new(Utility.GetRegVal<string>("Software\\Valve\\Steam", "SteamPath")!.ToValidPath());
 
-            this.UserName = SteamFriends.GetPersonaName();
+            if (this.GameDirectory is null)
+                if (!this.ConnectToGame())
+                    return false;
+
+            if (!this.SteamInitialized)
+            {
+                this.SteamInitialized = SteamAPI.Init();
+                if (!this.SteamInitialized)
+                {
+                    Debug.WriteLine("SteamAPI failed to initialize.");
+                    Debug.WriteLine(SteamAPI.Init());
+                    Debug.WriteLine(SteamAPI.Init());
+                    Debug.WriteLine(SteamAPI.Init());
+                    Debug.WriteLine(SteamAPI.Init());
+
+                    return false;
+                }
+            }
+
+            this.UserName ??= SteamFriends.GetPersonaName();
             this.SteamId = SteamUser.GetSteamID();
             
             return true;
@@ -43,21 +56,36 @@ namespace smSteamUtility
         public bool ConnectToGame()
         {
             this.RefreshGameStats();
-            this.DisplayName = Utility.GetRegVal<string>("Software\\Valve\\Steam", "LastGameNameUsed")!;
-            this.SteamLanguage = Utility.GetRegVal<string>("Software\\Valve\\Steam", "Language")!.CapitilzeFirst();
+            this.SteamDirectory ??= new(Utility.GetRegVal<string>("Software\\Valve\\Steam", "SteamPath")!.ToValidPath());
+            this.DisplayName ??= Utility.GetRegVal<string>("Software\\Valve\\Steam", "LastGameNameUsed");
+            this.SteamLanguage ??= Utility.GetRegVal<string>("Software\\Valve\\Steam", "Language")?.CapitilzeFirst();
 
-            if (!Directory.Exists(Path.Combine(this.SteamDirectory!.FullName, "steamapps", "common", "Scrap Mechanic")))
+            if (!Directory.Exists(Path.Combine(this.SteamDirectory!.FullName, "steamapps", "common", GameName)))
             {
-                string[] fileContents = File.ReadAllText(Path.Combine(this.SteamDirectory.FullName, "steamapps", "libraryfolders.vdf")).Split("\"");
+                string[] fileContents = File.ReadAllText(
+                    Path.Combine(this.SteamDirectory.FullName, "steamapps", "libraryfolders.vdf"))
+                    .Split("\"");
+
                 foreach (string path in fileContents)
                 {
-                    string smPath = Path.Combine(path, "steamapps", "common", "Scrap Mechanic");
+                    string smPath = Path.Combine(path, "steamapps", "common", GameName);
                     if (Directory.Exists(smPath))
                     {
-                        this.GameDirectory = new(smPath.Replace("\\\\", "\\"));
+                        this.GameDirectory = new DirectoryInfo(smPath.Replace("\\\\", "\\"));
                         break;
                     }
                 }
+
+                string steamApiDll = new DirectoryInfo(this.GameDirectory!.FullName)
+                    .GetFiles("steam_api64.dll", SearchOption.AllDirectories)
+                    .First().FullName;
+
+                //Console.WriteLine(Environment.CurrentDirectory);
+                string destSteamApiDll = Path.Combine(Environment.CurrentDirectory, "steam_api64.dll");
+
+                if (File.Exists(steamApiDll) && !File.Exists(destSteamApiDll))
+                    File.Copy(steamApiDll, destSteamApiDll, false);
+                
                 return true;
             }
             else
@@ -68,9 +96,9 @@ namespace smSteamUtility
 
         public void RefreshGameStats()
         {
-            this.GameInstalled = Utility.GetRegVal<bool>("Software\\Valve\\Steam\\Apps\\387990", "Installed");
-            this.GameUpdating = Utility.GetRegVal<bool>("Software\\Valve\\Steam\\Apps\\387990", "Updating");
-            this.GameRunning = Utility.GetRegVal<bool>("Software\\Valve\\Steam\\Apps\\387990", "Running");
+            this.GameInstalled = Utility.GetRegVal<bool>($"Software\\Valve\\Steam\\Apps\\{appid}", "Installed");
+            this.GameUpdating = Utility.GetRegVal<bool>($"Software\\Valve\\Steam\\Apps\\{appid}", "Updating");
+            this.GameRunning = Utility.GetRegVal<bool>($"Software\\Valve\\Steam\\Apps\\{appid}", "Running");
         }
         #endregion
 

@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+	  <LangVersion>12</LangVersion>
     <Platforms>AnyCPU;x64;ARM64</Platforms>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Description>Steam Utility for Scrap Mechanic that combines SteamAPI.dll, registry utility, SteamWorks.NET</Description>
@@ -17,8 +18,8 @@
     <NeutralLanguage>en</NeutralLanguage>
     <PackageReleaseNotes>Fixed packaging issue with steam_appid.txt</PackageReleaseNotes>
     <GenerateAssemblyInfo>true</GenerateAssemblyInfo>
-    <FileVersion>1.0.4.9</FileVersion>
-    <AssemblyVersion>2.0.2.2</AssemblyVersion>
+    <FileVersion>1.0.5.8</FileVersion>
+    <AssemblyVersion>2.0.3.2</AssemblyVersion>
     <Authors>TheGuy920</Authors>
     <Version>$(FileVersion)</Version>
     <Company>TGO Inc</Company>
@@ -43,13 +44,6 @@
 		  <Pack>True</Pack>
 		  <PackagePath>\</PackagePath>
 		</None>
-		<Content Include="steam_appid.txt">
-			<Pack>True</Pack>
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<PackageCopyToOutput>True</PackageCopyToOutput>
-			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-		</Content>
-		<None Update="steam_appid.txt" Pack="true" PackagePath="/contentFiles" />
 	</ItemGroup>
 
 </Project>

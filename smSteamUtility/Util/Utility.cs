@@ -9,8 +9,8 @@ namespace smSteamUtility.Util
         {
             try
             {
-                RegistryKey key = Registry.CurrentUser.OpenSubKey(path);
-                if (key != null)
+                using RegistryKey? key = Registry.CurrentUser.OpenSubKey(path);
+                if (key is not null)
                     if (typeof(T) == typeof(bool))
                         return (T)(object)Convert.ToBoolean((int)key.GetValue(value));
                     else
@@ -28,7 +28,7 @@ namespace smSteamUtility.Util
             public static string TextFile(string resourceName)
             {
                 string ResourceFileName = Assembly.GetExecutingAssembly().GetManifestResourceNames().Single(str => str.EndsWith(resourceName));
-                return new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream(ResourceFileName)).ReadToEnd();
+                return new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream(ResourceFileName)!).ReadToEnd();
             }
         }
     }
