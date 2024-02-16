@@ -1,19 +1,19 @@
-# smSteamUtility
-## Steam Utility for Scrap Mechanic that combines registry utility, SteamAPI.dll, and [Steamworks.NET](https://steamworks.github.io/)
+# SteamUtility
+## Generalized Steam Utility for any game that combines registry utility, SteamAPI.dll, and [Steamworks.NET](https://steamworks.github.io/)
 
 [![NuGet version (smSteamUtility)](https://img.shields.io/nuget/v/smSteamUtility.svg)](https://www.nuget.org/packages/smSteamUtility/)  [![.NET 6.0](https://github.com/TheGuy920/smSteamUtility/actions/workflows/dotnet-desktop.yml/badge.svg?branch=main)](https://github.com/TheGuy920/smSteamUtility/actions/workflows/dotnet-desktop.yml)
 
 
 ```csharp
-Steam steam = new();
+Steam steam = new("Scrap Mechanic", 387990);
+
+// Connect to game info
+if (steam.ConnectToGame())
+    Debug.WriteLine("Sucessfully linked to Scrap Mechanic");
 
 // Connect to steam
 if (steam.ConnectToSteam())
     Debug.WriteLine("Sucessfully conected to Steam");
-
-// Connect to game
-if (steam.ConnectToGame())
-    Debug.WriteLine("Sucessfully linked to Scrap Mechanic");
 
 // load Avatar Bitmaps
 steam.LoadAvatars();
