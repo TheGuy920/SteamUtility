@@ -1,7 +1,7 @@
 # SteamUtility
 ## Generalized Steam Utility for any game that combines registry utility, SteamAPI.dll, and [Steamworks.NET](https://steamworks.github.io/)
 
-[![NuGet version (smSteamUtility)](https://img.shields.io/nuget/v/smSteamUtility.svg)](https://www.nuget.org/packages/smSteamUtility/)  [![.NET 6.0](https://github.com/TheGuy920/smSteamUtility/actions/workflows/dotnet-desktop.yml/badge.svg?branch=main)](https://github.com/TheGuy920/smSteamUtility/actions/workflows/dotnet-desktop.yml)
+[![NuGet version (smSteamUtility)](https://img.shields.io/nuget/v/smSteamUtility.svg)](https://www.nuget.org/packages/SteamUtility/)  [![.NET 6.0](https://github.com/TheGuy920/smSteamUtility/actions/workflows/dotnet-desktop.yml/badge.svg?branch=main)](https://github.com/TheGuy920/smSteamUtility/actions/workflows/dotnet-desktop.yml)
 
 
 ```csharp
