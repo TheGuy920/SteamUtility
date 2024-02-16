@@ -80,7 +80,6 @@ namespace smSteamUtility
                     .GetFiles("steam_api64.dll", SearchOption.AllDirectories)
                     .First().FullName;
 
-                //Console.WriteLine(Environment.CurrentDirectory);
                 string destSteamApiDll = Path.Combine(Environment.CurrentDirectory, "steam_api64.dll");
 
                 if (File.Exists(steamApiDll) && !File.Exists(destSteamApiDll))
