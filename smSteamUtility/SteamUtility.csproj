@@ -7,22 +7,35 @@
 		<LangVersion>12</LangVersion>
 		<Platforms>AnyCPU;x64;ARM64</Platforms>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<Description>Steam Utility for Scrap Mechanic that combines SteamAPI.dll, registry utility, SteamWorks.NET</Description>
+		<Description>Steam Utility for any game that combines SteamAPI.dll, registry utility, SteamWorks.NET</Description>
 		<PackageProjectUrl>https://github.com/TheGuy920/smSteamUtility</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<RepositoryUrl>https://github.com/TheGuy920/smSteamUtility</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
-		<PackageTags>sm;steamworks;api;scrap;mechanic;</PackageTags>
+		<PackageTags>steamworks;api;steam;util;</PackageTags>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 		<PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
 		<NeutralLanguage>en</NeutralLanguage>
 		<PackageReleaseNotes>Fixed packaging issue with steam_appid.txt</PackageReleaseNotes>
-		<GenerateAssemblyInfo>true</GenerateAssemblyInfo>
+		<GenerateAssemblyInfo>False</GenerateAssemblyInfo>
 		<FileVersion>1.0.5.8</FileVersion>
 		<AssemblyVersion>2.0.3.2</AssemblyVersion>
 		<Authors>TheGuy920</Authors>
 		<Version>$(FileVersion)</Version>
 		<Company>TGO Inc</Company>
+		<NoWin32Manifest>true</NoWin32Manifest>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+	  <DebugType>none</DebugType>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+	  <DebugType>none</DebugType>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+	  <DebugType>none</DebugType>
 	</PropertyGroup>
 
 
@@ -32,11 +45,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-
 		<None Include="..\README.md">
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>
 		</None>
 	</ItemGroup>
-
 </Project>
