@@ -8,15 +8,16 @@
 		<Platforms>AnyCPU;x64;ARM64</Platforms>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Description>Steam Utility for any game that combines SteamAPI.dll, registry utility, SteamWorks.NET</Description>
-		<PackageProjectUrl>https://github.com/TheGuy920/smSteamUtility</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/TheGuy920/SteamUtility</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<RepositoryUrl>https://github.com/TheGuy920/smSteamUtility</RepositoryUrl>
+		<RepositoryUrl>https://github.com/TheGuy920/SteamUtility</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageTags>steamworks;api;steam;util;</PackageTags>
 		<PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
 		<PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
 		<NeutralLanguage>en</NeutralLanguage>
-		<PackageReleaseNotes>Fixed packaging issue with steam_appid.txt</PackageReleaseNotes>
+		<PackageId>SteamUtility</PackageId>
+		<PackageReleaseNotes>Updated to general steam util</PackageReleaseNotes>
 		<GenerateAssemblyInfo>False</GenerateAssemblyInfo>
 		<FileVersion>1.0.5.8</FileVersion>
 		<AssemblyVersion>2.0.3.2</AssemblyVersion>
