@@ -7,20 +7,27 @@ namespace smSteamUtility.Util
     {
         public static T? GetRegVal<T>(string path, string value)
         {
-            try
+            if (Environment.OSVersion.Platform == PlatformID.Win32NT)
             {
-                using RegistryKey? key = Registry.CurrentUser.OpenSubKey(path);
-                if (key is not null)
-                    if (typeof(T) == typeof(bool))
-                        return (T)(object)Convert.ToBoolean((int)key.GetValue(value));
+                try
+                {
+                    using RegistryKey? key = Registry.CurrentUser.OpenSubKey(path);
+                    if (key is not null)
+                        if (typeof(T) == typeof(bool))
+                            return (T)(object)Convert.ToBoolean((int)key.GetValue(value));
+                        else
+                            return (T)key.GetValue(value);
                     else
-                        return (T)key.GetValue(value);
-                else
-                    throw new();
+                        throw new();
+                }
+                catch (Exception)
+                {
+                    return default;
+                }
             }
-            catch (Exception)
+            else
             {
-                return default;
+                throw new PlatformNotSupportedException("This method is only supported on Windows.");
             }
         }
         internal static class LoadInternalFile

@@ -56,9 +56,26 @@ namespace smSteamUtility
         public bool ConnectToGame()
         {
             this.RefreshGameStats();
-            this.SteamDirectory ??= new(Utility.GetRegVal<string>("Software\\Valve\\Steam", "SteamPath")!.ToValidPath());
-            this.DisplayName ??= Utility.GetRegVal<string>("Software\\Valve\\Steam", "LastGameNameUsed");
-            this.SteamLanguage ??= Utility.GetRegVal<string>("Software\\Valve\\Steam", "Language")?.CapitilzeFirst();
+            if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+            {
+                this.SteamDirectory ??= new(Utility.GetRegVal<string>("Software\\Valve\\Steam", "SteamPath")!.ToValidPath());
+                this.DisplayName ??= Utility.GetRegVal<string>("Software\\Valve\\Steam", "LastGameNameUsed");
+                this.SteamLanguage ??= Utility.GetRegVal<string>("Software\\Valve\\Steam", "Language")?.CapitilzeFirst();
+            }
+            else if (Environment.OSVersion.Platform == PlatformID.Unix)
+            {
+                this.SteamDirectory ??= new(Environment.GetEnvironmentVariable("HOME") + "/.steam/steam");
+                this.DisplayName ??= "";
+                this.SteamLanguage ??= "English";
+                /*
+                this.DisplayName ??= Utility.GetRegVal<string>("Software\\Valve\\Steam", "LastGameNameUsed");
+                this.SteamLanguage ??= Utility.GetRegVal<string>("Software\\Valve\\Steam", "Language")?.CapitilzeFirst();
+                */
+            }
+            else
+            {
+                throw new PlatformNotSupportedException("This method is only supported on Windows.");
+            }
 
             if (!Directory.Exists(Path.Combine(this.SteamDirectory!.FullName, "steamapps", "common", GameName)))
             {
