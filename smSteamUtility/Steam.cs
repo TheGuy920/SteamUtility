@@ -22,9 +22,9 @@ namespace smSteamUtility
         public bool GameUpdating { get; internal set; }
 
         #region LoadSteam
-        public bool ConnectToSteam()
+        public bool ConnectToSteam(string? SteamPath = null)
         {
-            this.SteamDirectory ??= new(Utility.GetRegVal<string>("Software\\Valve\\Steam", "SteamPath")!.ToValidPath());
+            this.SteamDirectory ??= new(SteamPath ?? Utility.GetRegVal<string>("Software\\Valve\\Steam", "SteamPath")!.ToValidPath());
 
             if (this.GameDirectory is null)
                 if (!this.ConnectToGame())

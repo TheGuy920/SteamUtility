@@ -17,9 +17,9 @@
 		<PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
 		<NeutralLanguage>en</NeutralLanguage>
 		<PackageId>SteamUtility</PackageId>
-		<PackageReleaseNotes>Updated to general steam util</PackageReleaseNotes>
+		<PackageReleaseNotes>Updated readme</PackageReleaseNotes>
 		<GenerateAssemblyInfo>False</GenerateAssemblyInfo>
-		<FileVersion>1.0.5.8</FileVersion>
+		<FileVersion>1.0.5.9</FileVersion>
 		<AssemblyVersion>2.0.3.2</AssemblyVersion>
 		<Authors>TheGuy920</Authors>
 		<Version>$(FileVersion)</Version>
